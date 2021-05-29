@@ -76,7 +76,7 @@ output:
   path-prefix: ""
 
   # sorts results by: filepath, line and column
-  sort-results: false
+  sort-results: true
 
 
 linters-settings:
@@ -88,6 +88,22 @@ linters-settings:
   goconst:
     min-len: 2
     min-occurrences: 2
+  cyclop:
+    auto-fix: true
+  asciicheck:
+    auto-fix: true
+  errcheck:
+    auto-fix: true
+  errorlint:
+    auto-fix: true
+  typecheck:
+    auto-fix: true
+  tagliatelle:
+    auto-fix: true
+  whitespace:
+    auto-fix: true
+  revive:
+    auto-fix: true
   gocritic:
     enabled-tags:
       - diagnostic
@@ -128,6 +144,7 @@ linters-settings:
         checks: [ argument,case,condition,operation,return,assign ]
   govet:
     check-shadowing: true
+    enable-all: true
     settings:
       printf:
         funcs:
@@ -156,10 +173,18 @@ linters-settings:
     require-explanation: false # don't require an explanation for nolint directives
     require-specific: false # don't require nolint directives to be specific about which linter is being skipped
 linters:
-  disable-all: true
   enable:
     - bodyclose
     - deadcode
+    - gomoddirectives
+    - nilerr
+    - promlinter
+    - nlreturn
+    - predeclared
+    - tagliatelle
+    - wrapcheck
+    - ifshort
+    - wastedassign
     - depguard
     - dogsled
     - dupl
@@ -171,23 +196,30 @@ linters:
     - gocyclo
     - gofmt
     - goimports
-    - golint
+    - revive
     - gomnd
     - goprintffuncname
     - gosec
+    - cyclop
+    - durationcheck
+    - errorlint
+    - forbidigo
+    - gci
+    - gofumpt
+    - exhaustivestruct
     - gosimple
     - govet
     - ineffassign
-    - interfacer
     - misspell
     - nakedret
     - noctx
     - nolintlint
     - rowserrcheck
-    - scopelint
+    - exportloopref
     - staticcheck
     - structcheck
     - stylecheck
+    - forcetypeassert
     - typecheck
     - unconvert
     - unparam
@@ -196,7 +228,6 @@ linters:
     - whitespace
     - gocognit
     - godox
-    - maligned
     - nestif
     - asciicheck
     - goerr113

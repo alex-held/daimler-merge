@@ -18,7 +18,7 @@ gen-ginkgo:
 	go run github.com/onsi/ginkgo/ginkgo generate
 
 lint: gen
-	 golangci-lint run --fix --sort-results --config=./.golangci.yml --out-format=colored-line-number --color=auto ./...
+	 golangci-lint run --sort-results --fix --config .golangci.yaml  --print-resources-usage  --color auto --tests  --issues-exit-code 1 --uniq-by-line ./...
 
 test: lint
 	go run github.com/onsi/ginkgo/ginkgo -race -r  -v -cover -coverprofile=out/coverage.out -r  .  -- -test.v
