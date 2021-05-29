@@ -9,4 +9,5 @@ require (
 	github.com/onsi/ginkgo v1.16.3
 	github.com/onsi/gomega v1.13.0
 	github.com/stretchr/testify v1.7.0 // indirect
+	golang.org/x/sys v0.0.0-20210525143221-35b2ab0089ea // indirect
 )

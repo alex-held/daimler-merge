@@ -1,0 +1,19 @@
+= Development
+
+== Creating Test Suites
+
+Please use the https://github.com/onsi/ginkgo[ginkgo cli] to generate test suites.
+
+[source,bash]
+----
+mkdir -p pkg/my-cool-package
+cd pkg/my-cool-package
+make gen-ginkgo
+----
+
+== Running Test Suites in watch mode
+
+[source,bash]
+----
+make test-watch
+----

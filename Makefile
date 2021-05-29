@@ -11,13 +11,20 @@ deps:
 	go get -t -v
 
 gen: deps
-	go generate ./...
+	go generate -tags=tools ./...
+
+gen-ginkgo:
+	go run github.com/onsi/ginkgo/ginkgo bootstrap
+	go run github.com/onsi/ginkgo/ginkgo generate
 
 lint: gen
 	 golangci-lint run --fix --sort-results --config=./.golangci.yml --out-format=colored-line-number --color=auto ./...
 
 test: lint
-	go test -v --race ./...
+	go run github.com/onsi/ginkgo/ginkgo -race -r  -v -cover -coverprofile=out/coverage.out -r  .  -- -test.v
+
+test-watch:
+	 go run github.com/onsi/ginkgo/ginkgo watch -race -r  -v -cover -coverprofile=out/coverage.out -r  .  -- -test.v
 
 build: test
 	go build -o ${BINARY_PATH} -a -ldflags "-X=main.version=$(VERSION) -X=main.commit=$(COMMIT)" main.go
