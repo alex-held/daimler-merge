@@ -14,19 +14,28 @@ func (a Range) Merge(b Range) Range {
 	return Range{int(math.Min(float64(a[0]), float64(b[0]))), int(math.Max(float64(a[1]), float64(b[1])))}
 }
 
+// Overlaps returns a boolean indicating whether the ranges overlap
+func (a Range) Overlaps(b Range) bool {
+	if a[0] > b[0] {
+		a, b = b, a
+	}
+
+	return a[1] >= b[0]
+}
+
 // Ranges is an interval of Range
 type Ranges []Range
 
-func (s Ranges) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
+func (s Ranges) Len() int {
+	return len(s)
 }
 
 func (s Ranges) Less(i, j int) bool {
 	return s[i][0] < s[j][0]
 }
 
-func (s Ranges) Len() int {
-	return len(s)
+func (s Ranges) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
 }
 
 // Merge returns Ranges where overlapping Range values have been merged
@@ -41,6 +50,7 @@ func Merge(ranges Ranges) (result Ranges) {
 
 	for i, current := range ranges {
 		var last Range
+
 		// if this is the first iteration
 		if i == 0 {
 			// then set the smallest range as `last`
@@ -55,5 +65,6 @@ func Merge(ranges Ranges) (result Ranges) {
 
 		_, _ = current, last
 	}
+
 	return result
 }

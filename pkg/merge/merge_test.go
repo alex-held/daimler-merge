@@ -11,9 +11,7 @@ import (
 )
 
 var _ = Describe("merge", func() {
-
 	Describe("Ranges", func() {
-
 		Context("merge range with another range", func() {
 			It("returns merged range with min start and max end values", func() {
 				Expect(Range{1, 4}.Merge(Range{3, 6})).Should(Equal(Range{1, 6}))
