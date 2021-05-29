@@ -1,0 +1,16 @@
+= Quality Goals
+
+This section contains the quality goals that I selected to guide my design decisions while solving the link:./Task.md[Task].
+
+Functional Correctness:: The algorithm works merges all overlapping intervals and returns the expected result.
+
+Installability:: The project **needs** to be build by a third party, and I am unaware of their system environment.
+
+Testability:: Since algorithms tend to get messy, it is especially important, that a descriptive test suite documents the code.
+
+Analyzability:: I almost always prefer simplicity above performance. However, 'Performance efficiency' is still important, but if I need to choose between Performance and maintainability, I choose maintainability.
+
+
+
+== Further Information
+image::assets/ISO-QualityTree.png[alt="ISO-25010-QualityTree"]
