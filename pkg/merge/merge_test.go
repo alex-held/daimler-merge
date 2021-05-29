@@ -10,24 +10,24 @@ import (
 	. "github.com/alex-held/daimler-merge/pkg/merge"
 )
 
-var _ = Describe("Ranges", func() {
-	Context("sort.Sort(ranges)", func() {
-		table.DescribeTable(
-			"are sorted by ranges start value, ASC",
-			func(in, expected Ranges) {
-				sort.Sort(in)
-				Expect(in).Should(Equal(expected))
-			},
-			table.Entry("most negative left", Ranges{{-1, 5}, {-20, -10}}, Ranges{{-20, -10}, {-1, 5}}),
-			table.Entry("lesser left", Ranges{{1, 1}, {0, 1}}, Ranges{{0, 1}, {1, 1}}),
-			table.Entry("already ordered", Ranges{{1, 5}, {8, 10}}, Ranges{{1, 5}, {8, 10}}),
-			table.Entry("order overlap", Ranges{{3, 6}, {1, 5}}, Ranges{{-1, 5}, {3, 6}}),
-		)
+var _ = Describe("merge", func() {
+	Describe("merge.Range(s)", func() {
+		Context("sort.Sort(ranges)", func() {
+			table.DescribeTable(
+				"are sorted by ranges start value, ASC",
+				func(in, expected Ranges) {
+					sort.Sort(in)
+					Expect(in).Should(Equal(expected))
+				},
+				table.Entry("most negative left", Ranges{{-1, 5}, {-20, -10}}, Ranges{{-20, -10}, {-1, 5}}),
+				table.Entry("lesser left", Ranges{{1, 1}, {0, 1}}, Ranges{{0, 1}, {1, 1}}),
+				table.Entry("already ordered", Ranges{{1, 5}, {8, 10}}, Ranges{{1, 5}, {8, 10}}),
+				table.Entry("order overlap", Ranges{{3, 6}, {1, 5}}, Ranges{{-1, 5}, {3, 6}}),
+			)
+		})
 	})
-})
 
-var _ = Describe("merge intervals", func() {
-	Context("merge.Merge()", func() {
+	Describe("merge.Merge(range)", func() {
 		When("input is empty", func() {
 			It("returns empty interval", func() {
 				Expect(Merge(Ranges{})).Should(BeEmpty())
