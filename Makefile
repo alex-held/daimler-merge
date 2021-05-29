@@ -36,5 +36,8 @@ clean:
 install: build
 	go install -a -ldflags "-X=main.version=$(VERSION) -X=main.commit=$(COMMIT)" ./...
 
-man:
+man: gen
 	go run main.go --help-man > daimler-merge.1
+
+godoc: gen
+	godoc -play -v  -links  -notes -index -http "localhost:6060"
