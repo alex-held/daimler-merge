@@ -1,0 +1,16 @@
+= Time
+:copyright: copyright Alexander Held -  2021
+:revdate:"
+
+image:https://wakatime.com/badge/github/alex-held/daimler-merge.svg["wakatime",link="https://wakatime.com/badge/github/alex-held/daimler-merge"]
+
+NOTE: More details on how much time is spend where can be accessed on my https://wakatime.com/@alexheld/projects/qbtkeefwtf[WakaTime Dashboard].
+
+image:https://wakatime.com/share/@alexheld/7054fedd-133f-43e9-8349-b2682c9780fa.png[]]
+
+== Timeline
+
+- [x] Algorithm solved
+- [ ] Docker / k8s Support
+- [ ] Time Complexity Analysis
+- [ ] Space Complexity Analysis
