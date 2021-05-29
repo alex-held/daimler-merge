@@ -4,7 +4,7 @@ import (
 	"sort"
 
 	. "github.com/onsi/ginkgo"
-	"github.com/onsi/ginkgo/extensions/table"
+	. "github.com/onsi/ginkgo/extensions/table"
 	. "github.com/onsi/gomega"
 
 	. "github.com/alex-held/daimler-merge/pkg/merge"
@@ -12,19 +12,25 @@ import (
 
 var _ = Describe("merge", func() {
 	Describe("merge.Range(s)", func() {
-		Context("sort.Sort(ranges)", func() {
-			table.DescribeTable(
-				"are sorted by ranges start value, ASC",
-				func(in, expected Ranges) {
-					sort.Sort(in)
-					Expect(in).Should(Equal(expected))
-				},
-				table.Entry("most negative left", Ranges{{-1, 5}, {-20, -10}}, Ranges{{-20, -10}, {-1, 5}}),
-				table.Entry("lesser left", Ranges{{1, 1}, {0, 1}}, Ranges{{0, 1}, {1, 1}}),
-				table.Entry("already ordered", Ranges{{1, 5}, {8, 10}}, Ranges{{1, 5}, {8, 10}}),
-				table.Entry("order overlap", Ranges{{3, 6}, {1, 5}}, Ranges{{-1, 5}, {3, 6}}),
-			)
+
+		Context("merge range with another range", func() {
+			It("returns merged range with min start and max end values", func() {
+				Expect(Range{1, 4}.Merge(Range{3, 6})).Should(Equal(Range{1, 6}))
+			})
 		})
+
+		DescribeTable(
+			"sorting merge.Ranges by ascending range start values",
+			func(in, expected Ranges) {
+				sort.Sort(in)
+				Expect(in).Should(Equal(expected))
+			},
+			Entry("most negative left", Ranges{{-1, 5}, {-20, -10}}, Ranges{{-20, -10}, {-1, 5}}),
+			Entry("lesser left", Ranges{{1, 1}, {0, 1}}, Ranges{{0, 1}, {1, 1}}),
+			Entry("already ordered", Ranges{{1, 5}, {8, 10}}, Ranges{{1, 5}, {8, 10}}),
+			Entry("order overlap", Ranges{{3, 6}, {1, 5}}, Ranges{{-1, 5}, {3, 6}}),
+		)
+
 	})
 
 	Describe("merge.Merge(range)", func() {
