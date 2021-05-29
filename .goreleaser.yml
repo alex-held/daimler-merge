@@ -4,44 +4,62 @@ release:
     owner: alex-held
     name: daimler-merge
 brews:
-- install: |
-    bin.install "daimler-merge"
-    man1.install "daimler-merge.1"
-  github:
-    owner: alex-held
-    name: homebrew-tap
-  folder: Formula
-  homepage: https://github.com/alex-held/daimler-merge
-  description: coding task 2 for a job interview
+  - tap:
+      owner: alex-held
+      name: homebrew-tap
+    folder: Formula
+    homepage: https://github.com/alex-held/daimler-merge
+    description: overlapping interval merger
+    test: |
+      system "#{bin}/daimler-merge --version"
+    dependencies:
+      - name: go
+        type: optional
+      - name: git
+    install: |-
+      bin.install "daimler-merge"
+      man1.install "daimler-merge.1"
+#      bash_completion.install "completions/goreleaser.bash" => "goreleaser"
+#      zsh_completion.install "completions/goreleaser.zsh" => "_goreleaser"
+#      fish_completion.install "completions/goreleaser.fish"
 builds:
-- goos:
-  - linux
-  - darwin
-  - windows
-  goarch:
-  - amd64
-  - "386"
-  main: .
-  ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
-  binary: daimler-merge
-  hooks:
-    pre: make man
+  - goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - "386"
+    main: .
+    ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
+    binary: daimler-merge
+    hooks:
+      pre: make man
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - Merge pull request
+      - Merge branch
+      - go mod tidy
 archives:
-- id: gzip
-  format: tar.gz
-  format_overrides:
-    - goos: windows
-      format: zip
-  name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
-  files:
-  - licence*
-  - LICENCE*
-  - license*
-  - LICENSE*
-  - readme*
-  - README*
-  - changelog*
-  - CHANGELOG*
-  - daimler-merge.1
+  - id: gzip
+    format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+    name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+    files:
+      - licence*
+      - LICENCE*
+      - license*
+      - LICENSE*
+      - readme*
+      - README*
+      - changelog*
+      - CHANGELOG*
+      - daimler-merge.1
 snapshot:
   name_template: SNAPSHOT-{{ .Commit }}
