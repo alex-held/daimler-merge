@@ -1,12 +1,18 @@
 package merge
 
 import (
+	"math"
 	"sort"
 )
 
 // Range is an interval with a start integer and a end integer.
 // It `always` consists of exactly 2 integers.
 type Range [2]int
+
+// Merge returns a new Range with the minimal start and end values
+func (a Range) Merge(b Range) Range {
+	return Range{int(math.Min(float64(a[0]), float64(b[0]))), int(math.Max(float64(a[1]), float64(b[1])))}
+}
 
 // Ranges is an interval of Range
 type Ranges []Range
@@ -49,6 +55,5 @@ func Merge(ranges Ranges) (result Ranges) {
 
 		_, _ = current, last
 	}
-
 	return result
 }

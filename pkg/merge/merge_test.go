@@ -11,8 +11,10 @@ import (
 )
 
 var _ = Describe("merge", func() {
-	Describe("merge.Range(s)", func() {
 
+
+	
+	Describe("merge.Range(s)", func() {
 		Context("merge range with another range", func() {
 			It("returns merged range with min start and max end values", func() {
 				Expect(Range{1, 4}.Merge(Range{3, 6})).Should(Equal(Range{1, 6}))
@@ -28,9 +30,8 @@ var _ = Describe("merge", func() {
 			Entry("most negative left", Ranges{{-1, 5}, {-20, -10}}, Ranges{{-20, -10}, {-1, 5}}),
 			Entry("lesser left", Ranges{{1, 1}, {0, 1}}, Ranges{{0, 1}, {1, 1}}),
 			Entry("already ordered", Ranges{{1, 5}, {8, 10}}, Ranges{{1, 5}, {8, 10}}),
-			Entry("order overlap", Ranges{{3, 6}, {1, 5}}, Ranges{{-1, 5}, {3, 6}}),
+			Entry("order overlap", Ranges{{3, 6}, {1, 5}}, Ranges{{1, 5}, {3, 6}}),
 		)
-
 	})
 
 	Describe("merge.Merge(range)", func() {
