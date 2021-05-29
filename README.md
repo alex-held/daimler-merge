@@ -3,8 +3,18 @@
 coding task 2 for a job interview
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/alex-held/daimler-merge)](https://goreportcard.com/report/github.com/alex-held/daimler-merge)
+[![codecov](https://codecov.io/gh/alex-held/daimler-merge/branch/master/graph/badge.svg?token=xlCvdqX45x)](https://codecov.io/gh/alex-held/daimler-merge)
 [![Coverage Status](https://img.shields.io/codecov/c/github/alex-held/daimler-merge.svg)](https://codecov.io/gh/alex-held/daimler-merge)
 [![Release](https://github.com/alex-held/daimler-merge/workflows/Release/badge.svg)](https://github.com/alex-held/daimler-merge/releases)
+[![wakatime](https://wakatime.com/badge/github/alex-held/daimler-merge.svg)](https://wakatime.com/badge/github/alex-held/daimler-merge)
+
+
+![svg](https://wakatime.com/share/@alexheld/7054fedd-133f-43e9-8349-b2682c9780fa.png)
+
+.. image:: https://wakatime.com/share/@alexheld/7054fedd-133f-43e9-8349-b2682c9780fa.png
+:target: https://wakatime.com/
+
+
 
 ## Install
 

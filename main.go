@@ -8,7 +8,7 @@ import (
 
 // nolint
 var (
-	version = "snapshot"
+	version = "v0.0.2"
 	commit  = "snapshot"
 	date    = "snapshot"
 )
