@@ -45,6 +45,7 @@ func Merge(ranges Ranges) (result Ranges) {
 			// then set the smallest range as `last`
 			result = append(result, ranges[0])
 			first = false
+
 			continue
 		} else {
 			// get the last range
