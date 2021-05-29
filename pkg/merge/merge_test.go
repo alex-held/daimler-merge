@@ -12,13 +12,25 @@ import (
 
 var _ = Describe("merge", func() {
 
+	Describe("Ranges", func() {
 
-	
-	Describe("merge.Range(s)", func() {
 		Context("merge range with another range", func() {
 			It("returns merged range with min start and max end values", func() {
 				Expect(Range{1, 4}.Merge(Range{3, 6})).Should(Equal(Range{1, 6}))
 			})
+		})
+
+		Describe("check whether two ranges overlap", func() {
+			DescribeTable("merge range intervals",
+				func(a, b Range, expected bool) {
+					Expect(a.Overlaps(b)).Should(Equal(expected))
+					Expect(b.Overlaps(a)).Should(Equal(expected))
+				},
+				Entry("{1,5} {4,10} overlap", Range{1, 5}, Range{4, 10}, true),
+				Entry("{1,1} {1,4} overlap", Range{1, 1}, Range{1, 4}, true),
+				Entry("{1,1} {1,1} overlap", Range{1, 1}, Range{1, 1}, true),
+				Entry("{4,10} {1,5} overlap", Range{4, 10}, Range{1, 5}, true),
+				Entry("{1,5} {6,10} do not overlap", Range{1, 5}, Range{6, 10}, false))
 		})
 
 		DescribeTable(
