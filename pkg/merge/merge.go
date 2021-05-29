@@ -33,5 +33,22 @@ func Merge(ranges Ranges) (result Ranges) {
 		return ranges
 	}
 
+	for i, current := range ranges {
+		var last Range
+		// if this is the first iteration
+		if i == 0 {
+			// then set the smallest range as `last`
+			last = ranges[0]
+		}
+
+		/*
+			if last overlaps with current
+			| true:  merge current into last to increase the interval until we don't overlap
+			| false: append last on result
+		*/
+
+		_, _ = current, last
+	}
+
 	return result
 }
