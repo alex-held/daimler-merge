@@ -1,6 +1,6 @@
 = Quality Goals
 
-This section contains the quality goals that I selected to guide my design decisions while solving the link:./Task.md[Task].
+This section contains the quality goals that I selected to guide my design decisions while solving the link:./Task.adoc[Task].
 
 Functional Correctness:: The algorithm works merges all overlapping intervals and returns the expected result.
 
