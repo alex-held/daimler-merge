@@ -21,10 +21,10 @@ lint: gen
 	 golangci-lint run --sort-results --fix --config .golangci.yaml  --print-resources-usage  --color auto --tests  --issues-exit-code 1 --uniq-by-line ./...
 
 test: lint
-	go run github.com/onsi/ginkgo/ginkgo -race -r  -v -cover -coverprofile=out/coverage.out -r  .  -- -test.v
+	go run github.com/onsi/ginkgo/ginkgo -race -outputdir out -v  -coverprofile coverage.out -r  .  -- -test.v
 
 test-watch:
-	 go run github.com/onsi/ginkgo/ginkgo watch -race -r  -v -cover -coverprofile=out/coverage.out -r  .  -- -test.v
+	 go run github.com/onsi/ginkgo/ginkgo  -race -outputdir out -v -coverprofile coverage.out -r  .  -- -test.v
 
 build: test
 	go build -o ${BINARY_PATH} -a -ldflags "-X=main.version=$(VERSION) -X=main.commit=$(COMMIT)" main.go
