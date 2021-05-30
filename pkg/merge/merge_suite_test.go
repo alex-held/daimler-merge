@@ -1,8 +1,10 @@
 package merge_test
 
 import (
+	"fmt"
 	"sort"
 	"testing"
+	"time"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/ginkgo/extensions/table"
@@ -66,10 +68,25 @@ var _ = Describe("merge", func() {
 				Expect(Merge(Ranges{{25, 30}, {2, 19}, {14, 23}, {4, 8}})).Should(Equal(Ranges{{2, 23}, {25, 30}}))
 			})
 		})
+
 		When("input contains no mergable intervals", func() {
 			It("returns input without merged intervals", func() {
 				Expect(Merge(Ranges{{1, 3}, {4, 6}, {7, 9}})).Should(Equal(Ranges{{1, 3}, {4, 6}, {7, 9}}))
 			})
 		})
+
+		// Benchmarking
+		Measure("merge.Merge(range)", func(b Benchmarker) {
+			now := time.Now()
+			Expect(Merge(Ranges{{25, 30}, {2, 19}, {14, 23}, {4, 8}})).To(Equal(Ranges{{2, 23}, {25, 30}}))
+			sampleTime := time.Since(now)
+			b.RecordValueWithPrecision("merge.Merge runtime", float64(sampleTime.Nanoseconds()), "ns", 0)
+		}, 100)
 	})
 })
+
+// ExampleMerge
+func ExampleMerge() {
+	fmt.Println(Merge(Ranges{{25, 30}, {2, 19}, {14, 23}, {4, 8}}))
+	// Output: [[2 23] [25 30]]
+}
