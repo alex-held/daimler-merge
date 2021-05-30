@@ -1,6 +1,4 @@
 = Time
-:copyright: copyright Alexander Held -  2021
-:revdate:"
 
 image:https://wakatime.com/badge/github/alex-held/daimler-merge.svg["wakatime",link="https://wakatime.com/badge/github/alex-held/daimler-merge"]
 
@@ -8,9 +6,26 @@ NOTE: More details on how much time is spend where can be accessed on my https:/
 
 image:https://wakatime.com/share/@alexheld/7054fedd-133f-43e9-8349-b2682c9780fa.png[]]
 
-== Timeline
 
-- [x] Algorithm solved
+
+
+
+== Planned Content
+
+====
+- [x] Algorithm solved @2021-05-29T23:37
 - [ ] Docker / k8s Support
 - [ ] Time Complexity Analysis
 - [ ] Space Complexity Analysis
+====
+
+== Timeline
+
+2021-05-29T17:30:: started to work on the project.
+I clarified for myself what I want to archive link:QualityGoals.adoc[see QualityGoals]
+
+2021-05-29T19:34:: started to work on solving the problem
+
+2021-05-29T23:37:: solved the task. now improving benchmarking, godoc, docs and build.
+
+2021-05-30T03:50:: stopping for this session
