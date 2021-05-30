@@ -8,13 +8,14 @@ coding task 2 for a job interview
 [![Release](https://github.com/alex-held/daimler-merge/workflows/Release/badge.svg)](https://github.com/alex-held/daimler-merge/releases)
 [![wakatime](https://wakatime.com/badge/github/alex-held/daimler-merge.svg)](https://wakatime.com/badge/github/alex-held/daimler-merge)
 
+## Job Interview - Coding Task 2
 
-![svg](https://wakatime.com/share/@alexheld/7054fedd-133f-43e9-8349-b2682c9780fa.png)
+**This project gets not actively maintained!**
 
-.. image:: https://wakatime.com/share/@alexheld/7054fedd-133f-43e9-8349-b2682c9780fa.png
-:target: https://wakatime.com/
+This project provides an algorithm to merge overlapping integer intervals. You can find this
+algorithm [inside the merge package](pkg/merge).
 
-
+Refer to [Task](docs/Task.adoc) for detailed information.
 
 ## Install
 
@@ -24,6 +25,13 @@ go get github.com/alex-held/daimler-merge
 
 ## Usage
 
+``` shell
+daimler-merge
+// Before: [[2 19] [4 8] [14 23] [25 30]]
+// After: [[2 23] [25 30]]
 ```
+
+``` shell
 daimler-merge --help
+daimler-merge --version
 ```
