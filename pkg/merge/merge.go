@@ -36,21 +36,12 @@ func Merge(ranges Ranges) (result Ranges) {
 		return ranges
 	}
 
-	first := true
+	// seed the first compare with the smallest range
+	result = append(result, ranges[0])
+
 	for _, current := range ranges {
-		var last Range
-
-		// if this is the first iteration
-		if first {
-			// then set the smallest range as `last`
-			result = append(result, ranges[0])
-			first = false
-
-			continue
-		} else {
-			// get the last range
-			last = result[len(result)-1]
-		}
+		// get the last range
+		last := result[len(result)-1]
 
 		// check if the current range overlaps with the last
 		if !last.Overlaps(current) {
