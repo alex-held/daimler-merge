@@ -29,9 +29,15 @@ test-watch:
 build: test
 	go build -o ${BINARY_PATH} -a -ldflags "-X=main.version=$(VERSION) -X=main.commit=$(COMMIT)" main.go
 
+build-any: test
+	GOOS=darwin GOARCH=amd64 go build -o "${BINARY_PATH}-darwin-amd64" main.go
+	GOOS=freebsd GOARCH=amd64 go build -o "${BINARY_PATH}-freebsd-amd64" main.go
+	GOOS=linux GOARCH=amd64 go build -o "${BINARY_PATH}-linux-amd64" main.go
+	GOOS=windows GOARCH=amd64 go build -o "${BINARY_PATH}-windows-amd64" main.go
+
 clean:
 	go clean
-	rm ${BINARY_PATH}/*
+	rm ${OUTPUT_DIR}/*
 
 install: build
 	go install -a -ldflags "-X=main.version=$(VERSION) -X=main.commit=$(COMMIT)" ./...
