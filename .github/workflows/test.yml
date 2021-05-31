@@ -14,9 +14,6 @@ jobs:
           go-version: 1.14.x
       - name: get dependencies
         run: go get -v -t -d ./...
-      - name: vendoring
-        run: go mod vendor
-
       - uses: actions/upload-artifact@v2
         with:
           name: repository
