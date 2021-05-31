@@ -4,9 +4,7 @@ image:https://wakatime.com/badge/github/alex-held/daimler-merge.svg["wakatime",l
 
 NOTE: More details on how much time is spend where can be accessed on my https://wakatime.com/@alexheld/projects/qbtkeefwtf[WakaTime Dashboard].
 
-image:https://wakatime.com/share/@alexheld/7054fedd-133f-43e9-8349-b2682c9780fa.png[]]
-
-
+image:https://wakatime.com/share/@alexheld/7054fedd-133f-43e9-8349-b2682c9780fa.png[Coding Activity over last 7 days]
 
 
 
@@ -15,8 +13,8 @@ image:https://wakatime.com/share/@alexheld/7054fedd-133f-43e9-8349-b2682c9780fa.
 ====
 - [x] Algorithm solved @2021-05-29T23:37
 - [ ] Docker / k8s Support
-- [ ] Time Complexity Analysis
-- [ ] Space Complexity Analysis
+- [x] Time Complexity Analysis solved @2021-05-31T12:00
+- [x] Space Complexity Analysis solved @2021-05-31T12:15
 ====
 
 == Timeline
@@ -29,3 +27,7 @@ I clarified for myself what I want to archive link:QualityGoals.adoc[see Quality
 2021-05-29T23:37:: solved the task. now improving benchmarking, godoc, docs and build.
 
 2021-05-30T03:50:: stopping for this session
+
+2021-05-31T11:05:: started to work on complexity calculations
+
+2021-05-31T12:35:: started to work on Considerations

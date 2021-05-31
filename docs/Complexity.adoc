@@ -1,0 +1,39 @@
+= Complexity
+
+The following code block contains annotation for time-complexity 'time:' and space complexity 'space: ' calculations.
+
+[source,go]
+----
+// n is the length of the ranges
+func Merge(ranges Ranges) (result Ranges) { // space: +16n bytes
+	sort.Sort(ByRangeStart(ranges)) // time: +1 + n*log(n)
+
+	if len(ranges) == 0 {
+		return ranges
+	}
+
+	result = append(result, ranges[0]) // time: +1
+
+	for _, current := range ranges { // time: +n ; space: +8 bytes
+		last := result[len(result)-1]  // time: +1 ; space: +8 bytes
+
+		if !last.Overlaps(current) {  // time: +5
+			result = append(result, current)  // time: +1 ; space: +8 bytes
+
+			continue
+		}
+
+		result[len(result)-1] = last.Merge(current) // time: +7
+	}
+
+        // =========================
+        // time-complexity:         O( 17 + n*log(n))    ->     O(nlog(n))
+        // space-complexity:        O( 24 + 16n )       ->      O(n)
+	return result
+}
+----
+
+== Results:
+
+* Merge approaches O(nlog(n)) in time complexity.
+* Merge approaches O(n) in time complexity.

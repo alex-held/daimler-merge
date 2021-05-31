@@ -8,7 +8,7 @@ coding task 2 for a job interview
 [![Release](https://github.com/alex-held/daimler-merge/workflows/Release/badge.svg)](https://github.com/alex-held/daimler-merge/releases)
 [![wakatime](https://wakatime.com/badge/github/alex-held/daimler-merge.svg)](https://wakatime.com/badge/github/alex-held/daimler-merge)
 
-## Job Interview - Coding Task 2
+## Overview
 
 **This project gets not actively maintained!**
 
@@ -16,6 +16,8 @@ This project provides an algorithm to merge overlapping integer intervals. You c
 algorithm [inside the merge package](pkg/merge).
 
 Refer to [Task](docs/Task.adoc) for detailed information.
+
+For a report on time and space complexity please visit [Complexity](docs/Complexity.adoc). 
 
 ## Install
 

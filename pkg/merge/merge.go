@@ -10,11 +10,15 @@ import (
 type Range [2]int
 
 // Merge returns a new Range with the minimal start and end values
+//
+// time: O(6)
 func (a Range) Merge(b Range) Range {
 	return Range{int(math.Min(float64(a[0]), float64(b[0]))), int(math.Max(float64(a[1]), float64(b[1])))}
 }
 
 // Overlaps returns a boolean indicating whether the ranges overlap
+//
+// time: O(4-5)
 func (a Range) Overlaps(b Range) bool {
 	if a[0] > b[0] {
 		a, b = b, a
@@ -27,6 +31,9 @@ func (a Range) Overlaps(b Range) bool {
 type Ranges []Range
 
 // Merge returns Ranges where overlapping Range values have been merged
+//
+// time: approaches O(nlog(n))
+// space: approaches  O(n)
 func Merge(ranges Ranges) (result Ranges) {
 	// sort the ranges by the starting value
 	sort.Sort(ByRangeStart(ranges))
