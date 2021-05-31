@@ -22,7 +22,7 @@ For a report on time and space complexity please visit [Complexity](docs/Complex
 ## Build
 
 > This project is build on the shoulders of giants.
-> It uses [go](https://golang.org/) [golanglint-ci](https://golangci-lint.run/) and [ginkgo](https://onsi.github.io/ginkgo/)
+> It uses [go v1.16](https://golang.org/) [golanglint-ci](https://golangci-lint.run/) and [ginkgo](https://onsi.github.io/ginkgo/)
 > 
 > if you face any issues building this projects via the makefile consider installing the tools following the descriptions on 
 > - https://golang.org/doc/install
