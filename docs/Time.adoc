@@ -31,3 +31,5 @@ I clarified for myself what I want to archive link:QualityGoals.adoc[see Quality
 2021-05-31T11:05:: started to work on complexity calculations
 
 2021-05-31T12:35:: started to work on Considerations
+
+2021-05-31T13:15:: refactor Makefile to work on environments without `golangci-lint`
