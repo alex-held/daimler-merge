@@ -1,0 +1,28 @@
+= Considerations
+
+You can fine time + space complexity calculations can be found link:Complexity.adoc[here]
+
+== Dealing with large inputs
+
+Consider passing in local slices to enable caching of len(). https://stackoverflow.com/a/26634977[See the discussion] for more information.
+
+
+In case this algorithm gets often used to merge large intervals of Ranges consider following pattern:
+
+merge.Merge can remain the stable API.
+It's responsibility should change from providing the current implementation to proxying the input to a strategy suitable to the len of the input.
+
+* len == 0 -> return input
+* len is 'small' -> choose `merge.mergeSmall` which is optimized for small intervals
+* len is 'large' -> choose `merge.mergeLarge` which is optimized for large intervals
+* ...
+
+merge.MergeSmall:: use the current implementation of `merge.Merge`
+
+merge.MergeLarge::
+1. sort input see `merge.ByRangeStart`
+2. partition into smaller sizes based on the runtime environment
+3. add a sync mechanism e.g `sync.WaitGroup`
+4. concurrently merge the partitions
+5. after all partitions have been merged, merge the partitions into the result
+6. return result
