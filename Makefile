@@ -1,6 +1,6 @@
 .PHONY: gen lint test build install man clean
 
-VERSION=v0.0.4
+VERSION=v0.0.5
 COMMIT  := `git rev-parse HEAD`
 BINARY_NAME=daimler-merge
 OUTPUT_DIR=out
