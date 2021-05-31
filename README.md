@@ -19,9 +19,30 @@ Refer to [Task](docs/Task.adoc) for detailed information.
 
 For a report on time and space complexity please visit [Complexity](docs/Complexity.adoc). 
 
+## Build
+
+## Makefile
+
+``` shell
+# build for multi-platform
+make build-any
+
+# build for current platform
+make build
+```
+
+## Docker
+``` shell
+# build
+docker compose build
+
+# run
+docker compose run daimler-merge --version
+```
+
 ## Install
 
-```
+``` shell
 go get github.com/alex-held/daimler-merge
 ```
 

@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  daimler-merge:
+    image: alex-held/daimler-merge
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+        VERSION: v0.0.4

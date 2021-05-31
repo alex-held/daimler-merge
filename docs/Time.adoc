@@ -12,7 +12,7 @@ image:https://wakatime.com/share/@alexheld/7054fedd-133f-43e9-8349-b2682c9780fa.
 
 ====
 - [x] Algorithm solved @2021-05-29T23:37
-- [ ] Docker / k8s Support
+- [x] Docker / k8s Support
 - [x] Time Complexity Analysis solved @2021-05-31T12:00
 - [x] Space Complexity Analysis solved @2021-05-31T12:15
 ====
@@ -33,3 +33,5 @@ I clarified for myself what I want to archive link:QualityGoals.adoc[see Quality
 2021-05-31T12:35:: started to work on Considerations
 
 2021-05-31T13:15:: refactor Makefile to work on environments without `golangci-lint`
+
+2021-05-31T13:15:: add docker support
