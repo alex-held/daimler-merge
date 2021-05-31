@@ -12,7 +12,7 @@ import (
 
 // nolint
 var (
-	version = "v0.0.3"
+	version = "v0.0.4"
 	commit  = "snapshot"
 	date    = time.Now().Format(time.RFC3339)[11:]
 )
